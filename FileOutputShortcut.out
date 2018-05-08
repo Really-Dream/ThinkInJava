@@ -1,0 +1,29 @@
+1: package IO.FileOutput;
+2: 
+3: import IO.BufferedInput.BufferedInputFile;
+4: import util.Property;
+5: 
+6: import java.io.*;
+7: /**
+8:  * Created by H.J
+9:  * 2018/5/8
+10:  * 文本文件输出的快捷方式
+11:  */
+12: public class FileOutputShortcut {
+13:     static String file = "FileOutputShortcut.out";
+14:     public static void main(String args[]) throws IOException {
+15:         BufferedReader in = new BufferedReader(
+16:             new StringReader(
+17:                     BufferedInputFile.read(Property.getProperties("IOPath") + "FileOutput\\FileOutputShortcut.java")));
+18: 
+19:         PrintWriter out = new PrintWriter(file);
+20:         int lineCount = 1;
+21:         String s;
+22:         while ((s = in.readLine()) != null){
+23:             out.println(lineCount++ + ": " + s);
+24:         }
+25:         out.close();
+26: 
+27:         System.out.println(BufferedInputFile.read(file));
+28:     }
+29: }
