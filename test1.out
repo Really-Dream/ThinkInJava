@@ -15,10 +15,10 @@ public class Redirecting {
         BufferedInputStream in = new BufferedInputStream(
                 new FileInputStream(Property.getProperties("IOPath")+"standardIO\\Redirecting.java")
         );
-
         PrintStream out = new PrintStream("./test.out");
+        PrintStream fos = new PrintStream(new FileOutputStream("./test1.out"));
         System.setIn(in);
-        System.setOut(out);
+        System.setOut(fos);
         System.setErr(out);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s;
